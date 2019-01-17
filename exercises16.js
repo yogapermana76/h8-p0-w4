@@ -24,44 +24,58 @@ Output yang diharapkan berupa Object Literal dengan format sebagai berikut:
 
 function graduates (students) {
   // Code disini
+  // var output = {};
+  // for(var i = 0; i < students.length; i++) {
+  //   output[students[i].class] = [];
+  //   for(var key in output) {
+  //     for(var j = 0; j < students.length; j++) {
+  //       if(students[j].score > 75 && students[j].class == key) {
+  //         var temp = { name: students[j].name, score: students[j].score };
+  //         output[key].push(temp);
+  //       }
+  //     }
+  //   }
+  // }
+  // // cek data
+  // return output;
+
   var output = {};
   for(var i = 0; i < students.length; i++) {
-    output[students[i].class] = [];
-  }
-  // cek data
-  for(var key in output) {
-    for(var j = 0; j < students.length; j++) {
-      if(students[j].score > 75 && students[j].class == key) {
-        var temp = { name: students[j].name, score: students[j].score };
-        output[key].push(temp);
-      }
+    // cek kalau tidak ada
+    if(!output[students[i].class]) {
+      output[students[i].class] = [];
+    }
+    // cek kalau ada dan nilai diatas 75
+    if(students[i].score > 75) {
+      var temp = { name: students[i].name, score: students[i].score }
+      output[students[i].class].push(temp)
     }
   }
   return output;
 }
 
-// console.log(graduates([
-//   {
-//     name: 'Dimitri',
-//     score: 90,
-//     class: 'foxes'
-//   },
-//   {
-//     name: 'Alexei',
-//     score: 85,
-//     class: 'wolves'
-//   },
-//   {
-//     name: 'Sergei',
-//     score: 74,
-//     class: 'foxes'
-//   },
-//   {
-//     name: 'Anastasia',
-//     score: 78,
-//     class: 'wolves'
-//   }
-// ]));
+console.log(graduates([
+  {
+    name: 'Dimitri',
+    score: 90,
+    class: 'foxes'
+  },
+  {
+    name: 'Alexei',
+    score: 85,
+    class: 'wolves'
+  },
+  {
+    name: 'Sergei',
+    score: 74,
+    class: 'foxes'
+  },
+  {
+    name: 'Anastasia',
+    score: 78,
+    class: 'wolves'
+  }
+]));
 
 // {
 //   foxes: [
@@ -115,4 +129,4 @@ function graduates (students) {
 // // }
 
 
-console.log(graduates([])); //{}
+// console.log(graduates([])); //{}
