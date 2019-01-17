@@ -15,7 +15,12 @@ function urutkanAbjad(str) {
     }
   }
 
-  return arr;
+  var join = ''
+  for(var l = 0; l < arr.length; l++) {
+    join += arr[l];
+  }
+  
+  return join;
 
     // var abjad = 'abcdefghijklmnopqrstuvwxyz';
     // var temp = [];
