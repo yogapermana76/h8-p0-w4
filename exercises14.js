@@ -30,14 +30,13 @@ function naikAngkot(arrPenumpang) {
       if(ongkos.tujuan == rute[j]) {
         var destination = j;
       }
-
-      if(ongkos.penumpang == arrPenumpang[i][0]) {
-        // hitung jarak dari - tujuan & ongkos
-        var jarak = Math.abs(from - destination) * 2000; 
-        ongkos.bayar = jarak
-      }
     }
-
+    
+    var jarak = Math.abs(from - destination) * 2000; 
+    ongkos.bayar = jarak
+    // if(ongkos.penumpang == arrPenumpang[i][0]) {
+    //   // hitung jarak dari - tujuan & ongkos
+    // }
     result.push(ongkos);
   }
   return result;
