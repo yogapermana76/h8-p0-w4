@@ -15,16 +15,33 @@ Output yang diharapkan berupa Object Literal dengan format sebagai berikut:
 function highestScore (students) {
   // Code disini
   // buat template class di dalam object
+  // var output = {};
+  // for(var i = 0; i < students.length; i++) {
+  //   for(var j = 0; j < students.length; j++) {
+  //     if(students[i].class == students[j].class && students[i].score > students[j].score) {
+  //       output[students[i].class] = { name: students[i].name, score: students[i].score}
+  //     }
+  //   }
+  //   output[students[i].class] = { name: students[i].name, score: students[i].score}
+  // }
+
+  // return output;
+
   var output = {};
   for(var i = 0; i < students.length; i++) {
-    for(var j = 0; j < students.length; j++) {
-      if(students[i].class == students[j].class && students[i].score > students[j].score) {
-        output[students[i].class] = { name: students[i].name, score: students[i].score}
-      }
+    // cek jika tidak ada
+    if(!output[students[i].class]) {
+      output[students[i].class] = {
+        name: '',
+        score: 0
+      };
     }
-    output[students[i].class] = { name: students[i].name, score: students[i].score}
-  }
-
+    // cek score paling tertinggi
+    if(students[i].score > output[students[i].class].score) {
+      output[students[i].class].name = students[i].name;
+      output[students[i].class].score = students[i].score;
+    }
+  } 
   return output;
 }
 
