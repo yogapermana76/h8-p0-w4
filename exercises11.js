@@ -36,7 +36,12 @@ function shoppingTime(memberId, money) {
     "Sweater brand Uniklooh": 175000,
     "Casing Handphone": 50000
   } // buat list barang beserta harga
-
+  
+  if(memberId == '' || memberId == undefined) {
+      return 'Mohon maaf, toko X hanya berlaku untuk member saja';
+  } else if(money < 50000) {
+    return 'Mohon maaf, uang tidak cukup';
+  }
   // input ke masing-masing key
   result = {
     memberId: memberId,
@@ -56,15 +61,7 @@ function shoppingTime(memberId, money) {
   }
   
   result.changeMoney = sisa; // sisa dari pembelian suatu barang
-
-  // cek kondisi
-  if(memberId == '' || memberId == undefined) {
-      return 'Mohon maaf, toko X hanya berlaku untuk member saja';
-  } else if(money < 50000) {
-    return 'Mohon maaf, uang tidak cukup';
-  } else {
-    return result;
-  }
+  return result;
 }
 
 // TEST CASES
